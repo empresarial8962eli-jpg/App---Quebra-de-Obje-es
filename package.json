@@ -9,7 +9,7 @@
     "backend:build": "cd backend && next build"
   },
   "dependencies": {
-    "@anthropic-ai/sdk": "^0.32.0",
+    "@anthropic-ai/sdk": "^0.120.0",
     "@trigger.dev/sdk": "4.5.12",
     "next": "^15.0.0",
     "react": "^18.3.0",
