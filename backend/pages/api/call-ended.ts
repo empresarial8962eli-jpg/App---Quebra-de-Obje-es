@@ -1,8 +1,12 @@
 import type { NextApiRequest, NextApiResponse } from "next";
 import { tasks } from "@trigger.dev/sdk";
-import type { saveCallTranscript } from "../../../src/trigger/quebra-objecao/save-call-transcript";
 import { tokenValido } from "../../lib/auth";
 import { aplicarCors } from "../../lib/cors";
+
+// O payload esperado é {transcript: string, endedAt: string}, igual ao definido em
+// src/trigger/quebra-objecao/save-call-transcript.ts. Sem tipagem cruzada com o task aqui
+// (não usamos tasks.trigger<typeof saveCallTranscript>) porque o backend é deployado
+// isoladamente na Vercel — só a pasta backend/ vai pro build, um import pra fora dela quebra.
 
 // A extensão usa navigator.sendBeacon() pra chamar esta rota quando a call termina.
 // sendBeacon não permite headers customizados, então o token vem via query string.
@@ -23,7 +27,7 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
     return res.status(400).json({ error: "transcript is required" });
   }
 
-  await tasks.trigger<typeof saveCallTranscript>("save-call-transcript", {
+  await tasks.trigger("save-call-transcript", {
     transcript,
     endedAt: endedAt ?? new Date().toISOString(),
   });
