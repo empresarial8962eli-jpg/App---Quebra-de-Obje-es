@@ -5,7 +5,7 @@ chrome.runtime.onInstalled.addListener(() => {
   chrome.storage.local.get(["ativo", "backendUrl", "pollIntervalMs"], (current) => {
     chrome.storage.local.set({
       ativo: current.ativo ?? true,
-      backendUrl: current.backendUrl ?? "http://localhost:3000",
+      backendUrl: current.backendUrl ?? "https://backend-eliandros-projects-891f912b.vercel.app",
       apiToken: current.apiToken ?? "",
       pollIntervalMs: current.pollIntervalMs ?? 2500,
       captionSelectorOverride: current.captionSelectorOverride ?? "",

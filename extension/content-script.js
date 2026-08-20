@@ -28,7 +28,7 @@ function getSettings() {
     chrome.storage.local.get(
       {
         ativo: true,
-        backendUrl: "http://localhost:3000",
+        backendUrl: "https://backend-eliandros-projects-891f912b.vercel.app",
         apiToken: "",
         pollIntervalMs: DEFAULT_POLL_INTERVAL_MS,
         captionSelectorOverride: "",

@@ -3,7 +3,7 @@ const fields = ["ativo", "backendUrl", "apiToken", "pollIntervalMs", "captionSel
 function load() {
   chrome.storage.local.get(fields, (settings) => {
     document.getElementById("ativo").checked = settings.ativo ?? true;
-    document.getElementById("backendUrl").value = settings.backendUrl ?? "http://localhost:3000";
+    document.getElementById("backendUrl").value = settings.backendUrl ?? "https://backend-eliandros-projects-891f912b.vercel.app";
     document.getElementById("apiToken").value = settings.apiToken ?? "";
     document.getElementById("pollIntervalMs").value = settings.pollIntervalMs ?? 2500;
     document.getElementById("captionSelectorOverride").value = settings.captionSelectorOverride ?? "";

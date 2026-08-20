@@ -23,18 +23,6 @@ jobs:
       - name: Install Vercel CLI
         run: npm install --global vercel@latest
 
-      - name: Debug token (não expõe o valor, só o formato)
-        run: |
-          TOKEN="${{ secrets.VERCEL_TOKEN }}"
-          echo "Tamanho do VERCEL_TOKEN: ${#TOKEN} caracteres"
-          echo "Primeiro caractere (código): $(printf '%s' "$TOKEN" | head -c1 | od -An -tu1)"
-          echo "Último caractere (código): $(printf '%s' "$TOKEN" | tail -c1 | od -An -tu1)"
-          echo "ORG_ID definido: ${{ secrets.VERCEL_ORG_ID != '' }}"
-          echo "PROJECT_ID definido: ${{ secrets.VERCEL_PROJECT_ID != '' }}"
-          curl -s -o /dev/null -w "whoami HTTP status: %{http_code}\n" \
-            -H "Authorization: Bearer ${{ secrets.VERCEL_TOKEN }}" \
-            https://api.vercel.com/v2/user
-
       - name: Pull Vercel project settings
         run: vercel pull --yes --environment=production --token=${{ secrets.VERCEL_TOKEN }}
         env:
