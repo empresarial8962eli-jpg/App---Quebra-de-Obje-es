@@ -1,0 +1,45 @@
+#copiloto-overlay {
+  position: fixed;
+  top: 80px;
+  right: 24px;
+  width: 320px;
+  z-index: 2147483647;
+  background: #1a1a2e;
+  color: #f5f5f5;
+  border-radius: 10px;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.35);
+  font-family: -apple-system, "Segoe UI", Roboto, sans-serif;
+  font-size: 13px;
+  line-height: 1.4;
+  padding: 10px 12px;
+}
+
+#copiloto-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 11px;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  color: #a0a0c0;
+  margin-bottom: 6px;
+}
+
+#copiloto-drag-handle {
+  cursor: grab;
+  padding: 0 4px;
+  user-select: none;
+}
+
+#copiloto-sugestao {
+  font-size: 15px;
+  font-weight: 600;
+  color: #ffffff;
+}
+
+#copiloto-sinal {
+  margin-top: 6px;
+  font-size: 11px;
+  color: #8888aa;
+  font-style: italic;
+}

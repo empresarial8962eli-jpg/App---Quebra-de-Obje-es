@@ -1,0 +1,58 @@
+<!doctype html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="utf-8" />
+    <title>Copiloto de Vendas</title>
+    <style>
+      body {
+        width: 260px;
+        font-family: -apple-system, "Segoe UI", Roboto, sans-serif;
+        font-size: 13px;
+        padding: 12px;
+      }
+      label {
+        display: block;
+        margin-top: 10px;
+        font-weight: 600;
+      }
+      input[type="text"],
+      input[type="number"] {
+        width: 100%;
+        box-sizing: border-box;
+        margin-top: 4px;
+        padding: 4px 6px;
+      }
+      .row {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+      }
+      button {
+        margin-top: 12px;
+        width: 100%;
+        padding: 6px;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="row">
+      <strong>Copiloto ativo</strong>
+      <input type="checkbox" id="ativo" />
+    </div>
+
+    <label>URL do backend</label>
+    <input type="text" id="backendUrl" placeholder="http://localhost:3000" />
+
+    <label>Token da API</label>
+    <input type="text" id="apiToken" placeholder="COPILOTO_API_TOKEN" />
+
+    <label>Intervalo entre sugestões (ms)</label>
+    <input type="number" id="pollIntervalMs" min="2000" step="500" />
+
+    <label>Seletor de legendas (avançado, opcional)</label>
+    <input type="text" id="captionSelectorOverride" placeholder="deixe em branco para usar o padrão" />
+
+    <button id="salvar">Salvar</button>
+    <script src="popup.js"></script>
+  </body>
+</html>

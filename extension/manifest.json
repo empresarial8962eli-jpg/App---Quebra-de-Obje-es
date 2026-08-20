@@ -1,0 +1,26 @@
+{
+  "manifest_version": 3,
+  "name": "Copiloto de Vendas — Quebra Objeção",
+  "version": "0.1.0",
+  "description": "Sugestões em tempo real para o closer durante calls de venda no Google Meet.",
+  "permissions": ["storage"],
+  "host_permissions": [
+    "https://meet.google.com/*",
+    "http://localhost:3000/*"
+  ],
+  "background": {
+    "service_worker": "background.js"
+  },
+  "content_scripts": [
+    {
+      "matches": ["https://meet.google.com/*"],
+      "js": ["content-script.js"],
+      "css": ["overlay.css"],
+      "run_at": "document_idle"
+    }
+  ],
+  "action": {
+    "default_popup": "popup.html",
+    "default_title": "Copiloto de Vendas"
+  }
+}
